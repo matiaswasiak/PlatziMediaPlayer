@@ -1,13 +1,13 @@
-const VERSION = 'v1';
+const VERSION = "v1";
 
-self.addEventListener('install', event => {
+self.addEventListener("install", (event) => {
   event.waitUntil(precache());
 });
 
-self.addEventListener('fetch', event => {
+self.addEventListener("fetch", (event) => {
   const request = event.request;
   // get
-  if (request.method !== 'GET') {
+  if (request.method !== "GET") {
     return;
   }
 
@@ -28,7 +28,7 @@ async function precache() {
     // '/assets/plugins/AutoPlay.js',
     // '/assets/plugins/AutoPause.ts',
     // '/assets/index.css',
-    // '/assets/BigBuckBunny.mp4',
+    // '/assets/Speak English Fluently Rule 7 - YouTube.MP4',
   ]);
 }
 
