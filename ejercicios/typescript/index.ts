@@ -1,40 +1,30 @@
-// Boolean
-let muted: boolean = true;
-muted = false;
-
-// Números
-let age = 6;
-let numerador: number = 42;
-let denominador: number = 6;
-let resultado = numerador / denominador;
-
-// String
-let nombre: string = "Matias";
-let saludo = `Me llamo &{nombre}`;
-
-// Arreglos
-let people: string[] = [];
-people = ["Isabel", "Nicole", "Raul"];
-// people.push("9000");
-
-let peopleAndNumber: Array<string | number> = [];
-peopleAndNumber.push("Matias");
-peopleAndNumber.push(9000);
-
-// Enum
+// Interfaces
 enum Color {
-  Rojo = "Rojo",
-  Verde = "Verde",
-  Azul = "Azul",
-  Amarillo = "Amarillo",
+  Rojo = 'Rojo',
+  Verde = 'Verde',
 }
 
-let colorFavorito: Color = Color.Verde;
-console.log(`Mi color favorito es ${colorFavorito}`);
+interface Rectangulo {
+  ancho: number;
+  alto: number;
+  color?: Color;
+}
 
-// Any
-let comodin: any = "Joker";
-comodin = { type: "Wildcard" };
+let rect: Rectangulo = {
+  ancho: 4,
+  alto: 6,
+  // color: Color.Rojo,
+};
 
-// Object
-let someObject: object = { type: "Wildcard" };
+function area(r: Rectangulo): number {
+  return r.alto * r.ancho;
+}
+
+const areaRect = area(rect);
+console.log(areaRect);
+
+rect.toString = function() {
+  return this.color ? `Un rectangulo ${this.color}` : `Un rectangulo`;
+};
+
+console.log(rect.toString());
